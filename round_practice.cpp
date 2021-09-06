@@ -14,8 +14,6 @@ int main(){
 freopen("ipt.txt","r",stdin);
 freopen("out.txt","w",stdout);
 #endif
-    cin>>n;
-    cout<<n;
-    cout<<2<<endl;
+    cout<<(1^2);
 return 0;
 }
