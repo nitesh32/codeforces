@@ -21,26 +21,22 @@ int main(){
 freopen("ipt.txt","r",stdin);
 freopen("out.txt","w",stdout);
 #endif
-    cin>>n;
-    int arr[n];
-    int prev ;
+    ll k,c=0;
+    cin>>n>>k;
+    ll arr[n];
     nit(i,n){
         cin>>arr[i];
-        if(arr[i]==prev){
-            cout<<"false";
-            return 0;
+    }
+    sort(arr,arr+n);
+    printarr(arr,n);
+    for(i=0;i<n;i++){
+        for(ll j = i+1;j<n;j++){
+            if((arr[j]-arr[i])>=k){
+                c += n-j;
+                break;
+            }
         }
-        prev = arr[i];
     }
-    int c=0;
-    for(int i=1;i<n-1;i++){
-        if((arr[i]>arr[i-1]&&arr[i]>arr[i+1])||(arr[i]<arr[i-1]&&arr[i]<arr[i+1])) c++;
-    }
-    if(c>=2){
-        cout<<"false";
-    }
-    else{
-        cout<<"true";
-    }
+    cout<<c;
 return 0;
 }

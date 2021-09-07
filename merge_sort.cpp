@@ -32,12 +32,16 @@ void mergesort(int l,int r,int mid){
     int l_i=0,r_i=0;
     for(int i=l;i<=r;i++){
        if(L[l_i]<=R[r_i]){
+           
            arr[i]=L[l_i];
            l_i++;
+           cout<<l<<" "<<r<<" "<<arr[i]<<endl;
        }
        else{
+         
            arr[i] = R[r_i];
            r_i++;
+           cout<<l<<" "<<r<<" "<<arr[i]<<endl;
        }
     }
 }
