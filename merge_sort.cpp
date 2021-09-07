@@ -16,31 +16,48 @@ void printmap(map<ll,ll> mp){for(auto val:mp)cout<<val.first<<" "<<val.second<<e
 void printvec(vector<ll> vec){for(auto val:vec)cout<<val<<" ";cout<<endl;}
 void printset(set<ll> st){for(auto val:st)cout<<val<<" ";cout<<endl;}
 /*-------------------------------------------------------------------------------*/
+int arr[] = {38,27,43,3,9,82,10};
+void mergesort(int l,int r,int mid){
+    int l_sz = mid - l + 1;
+    int L[l_sz+1];
+    int r_sz = r - mid;
+    int R[r_sz+1];
+    for(int i=0;i<l_sz;i++){
+        L[i] = arr[i+l];
+    }
+    for(int i=0;i<r_sz;i++){
+        R[i] = arr[i+mid+1];
+    }
+    L[l_sz]=R[r_sz]=INT_MAX;
+    int l_i=0,r_i=0;
+    for(int i=l;i<=r;i++){
+       if(L[l_i]<=R[r_i]){
+           arr[i]=L[l_i];
+           l_i++;
+       }
+       else{
+           arr[i] = R[r_i];
+           r_i++;
+       }
+    }
+}
+void merge(int st,int end){
+    if(st==end) return ;
+    int mid = (st+end)/2;
+    merge(st,mid);
+    merge(mid+1,end);
+    mergesort(st,end,mid);
+    
+}
+
 int main(){
 #ifndef ONLINE_JUDGE
 freopen("ipt.txt","r",stdin);
 freopen("out.txt","w",stdout);
+   merge(0,6);
+   for(int i=0;i<7;i++){
+       cout<<arr[i]<<" ";
+   }
 #endif
-    cin>>n;
-    int arr[n];
-    int prev ;
-    nit(i,n){
-        cin>>arr[i];
-        if(arr[i]==prev){
-            cout<<"false";
-            return 0;
-        }
-        prev = arr[i];
-    }
-    int c=0;
-    for(int i=1;i<n-1;i++){
-        if((arr[i]>arr[i-1]&&arr[i]>arr[i+1])||(arr[i]<arr[i-1]&&arr[i]<arr[i+1])) c++;
-    }
-    if(c>=2){
-        cout<<"false";
-    }
-    else{
-        cout<<"true";
-    }
 return 0;
 }
