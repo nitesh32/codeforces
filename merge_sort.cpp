@@ -16,52 +16,54 @@ void printmap(map<ll,ll> mp){for(auto val:mp)cout<<val.first<<" "<<val.second<<e
 void printvec(vector<ll> vec){for(auto val:vec)cout<<val<<" ";cout<<endl;}
 void printset(set<ll> st){for(auto val:st)cout<<val<<" ";cout<<endl;}
 /*-------------------------------------------------------------------------------*/
-int arr[] = {38,27,43,3,9,82,10};
-void mergesort(int l,int r,int mid){
-    int l_sz = mid - l + 1;
-    int L[l_sz+1];
-    int r_sz = r - mid;
-    int R[r_sz+1];
-    for(int i=0;i<l_sz;i++){
-        L[i] = arr[i+l];
+void merge(ll *arr,ll st,ll end){
+   
+    ll mid = (((st+end)/2)+1);
+     ll i = st,j = mid;
+     ll output[end-st+1];
+     ll k=0;
+    while(i<mid&&j<=end){
+        if(arr[i]<arr[j]){
+            output[k++] = arr[i++];
+        }
+        else{
+            output[k++] = arr[j++];
+        }
     }
-    for(int i=0;i<r_sz;i++){
-        R[i] = arr[i+mid+1];
+    while(i<mid){
+        output[k++] = arr[i++];
     }
-    L[l_sz]=R[r_sz]=INT_MAX;
-    int l_i=0,r_i=0;
-    for(int i=l;i<=r;i++){
-       if(L[l_i]<=R[r_i]){
-           
-           arr[i]=L[l_i];
-           l_i++;
-           cout<<l<<" "<<r<<" "<<arr[i]<<endl;
-       }
-       else{
-         
-           arr[i] = R[r_i];
-           r_i++;
-           cout<<l<<" "<<r<<" "<<arr[i]<<endl;
-       }
+    while(j<=end){
+        output[k++] = arr[j++];
     }
-}
-void merge(int st,int end){
-    if(st==end) return ;
-    int mid = (st+end)/2;
-    merge(st,mid);
-    merge(mid+1,end);
-    mergesort(st,end,mid);
+    k=0;
+    for(int i=st;i<=end;i++){
+       arr[i]=output[k++];
+    }
     
+
 }
+void merge_sort(ll arr[],ll st,ll end){
+    if(st>=end) return ;
+    ll mid = (st+end)/2;
+    merge_sort(arr,st,mid);
+    merge_sort(arr,mid+1,end);
+    merge(arr,st,end);
+}
+
+
 
 int main(){
 #ifndef ONLINE_JUDGE
 freopen("ipt.txt","r",stdin);
 freopen("out.txt","w",stdout);
-   merge(0,6);
-   for(int i=0;i<7;i++){
-       cout<<arr[i]<<" ";
-   }
 #endif
+    cin>>n;
+    ll arr[n];
+    nit(i,n){
+        cin>>arr[i];
+    }
+    merge_sort(arr,0,n);
+    printarr(arr,n);
 return 0;
 }
