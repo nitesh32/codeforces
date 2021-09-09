@@ -17,10 +17,37 @@ void printvec(vector<ll> vec){for(auto val:vec)cout<<val<<" ";cout<<endl;}
 void printset(set<ll> st){for(auto val:st)cout<<val<<" ";cout<<endl;}
 /*-------------------------------------------------------------------------------*/
 int main(){
-#ifndef ONLINE_JUDGE
+/* #ifndef ONLINE_JUDGE
 freopen("ipt.txt","r",stdin);
 freopen("out.txt","w",stdout);
-#endif
-    
+#endif */
+    struct node{
+        int data;
+        struct node *next;
+    };
+    struct node *head,*temp,*newnode;
+    head = 0 ;
+    int k=1;
+    while(k){
+        newnode = (struct node*)new int[sizeof(struct node)];
+        cout<<"enter data : ";
+        cin>>newnode->data;
+        newnode->next=0;
+        if(head ==0){
+            head = newnode;
+            temp = newnode;
+        }
+        else{
+            temp->next = newnode;
+            temp = newnode;
+        }
+        cout<<"enter 1 or 0 : ";
+        cin>>k;
+    }
+    temp = head ;
+    while(temp != 0){
+        cout<<temp->data<<" ";
+        temp = temp->next;
+    }
 return 0;
 }

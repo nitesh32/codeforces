@@ -23,7 +23,7 @@ void merge(ll *arr,ll st,ll end){
      ll output[end-st+1];
      ll k=0;
     while(i<mid&&j<=end){
-        if(arr[i]<arr[j]){
+        if(arr[i]<=arr[j]){
             output[k++] = arr[i++];
         }
         else{
