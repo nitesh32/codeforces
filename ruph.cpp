@@ -1,26 +1,48 @@
 #include<bits/stdc++.h>
 using namespace std;
-long long n,i;
-string s;
 typedef long long ll;
-#define nit( i, n) for(i=0;i<n;i++)
-/*--------------------------------------------------------------------------------*/
-int gcd(int a,int b){ if(b==0) return a; else return gcd(b,a%b);}
-bool iseven(int n){return ((n&1)==0)?true:false;}
-int pov(int n,int m){ int c=1;  while(m>0){  if(!iseven(m)){ c=c*n; } n=n*n; m=m>>1;  }  return c; }
-unsigned int intlen(unsigned int n){return n ? intlen(n/10)+1 : 0;}
-bool isprime(int x) { for (int d = 2; d * d <= x; d++) { if (x % d == 0) return false; }return true; }
-/*-------------------------------------------------------------------------------*/
-void printarr(ll arr[],ll n){nit(i,n)cout<<arr[i]<<" ";cout<<endl; }
-void printmap(map<ll,ll> mp){for(auto val:mp)cout<<val.first<<" "<<val.second<<endl;}
-void printvec(vector<ll> vec){for(auto val:vec)cout<<val<<" ";cout<<endl;}
-void printset(set<ll> st){for(auto val:st)cout<<val<<" ";cout<<endl;}
-/*-------------------------------------------------------------------------------*/
+bool check(ll num,ll k){
+    ll sum = 0;
+    ll n = num;
+    while(n>0){
+        sum += min(n,k);
+        n = n - k;
+        n = n - (n/10); 
+    }
+    if(sum*2>=num){
+        return true;
+    }
+    return false;
+}
+ll search(ll n,ll st,ll ed){
+    if(st<=ed){
+        ll mid = (st+ed)/2;
+        if(check(n,mid)){
+            ll k = min(search(n,st,mid-1),mid);
+            return k;
+        }
+        else{
+            return search(n,mid+1,ed);
+        }
+        
+        
+    }
+}
 int main(){
 #ifndef ONLINE_JUDGE
 freopen("ipt.txt","r",stdin);
 freopen("out.txt","w",stdout);
 #endif
+    ll t;
+    cin>>t;
+    while(t--){
+        ll n;
+        cin>>n;
+        cout<<search(n,1,n)<<endl;
+    }
     
-return 0;
+    return 0;
 }
+//402
+//228
+//37
