@@ -1,16 +1,2 @@
-
-d
-c
-cd
-b
-bd
-bc
-bcd
-a
-ad
-ac
-acd
-ab
-abd
-abc
-abcd
+1 4 7 12 33 45 67 
+number of swaps required : 4
