@@ -16,6 +16,16 @@ void printmap(map<ll,ll> mp){for(auto val:mp)cout<<val.first<<" "<<val.second<<e
 void printvec(vector<ll> vec){for(auto val:vec)cout<<val<<" ";cout<<endl;}
 void printset(set<ll> st){for(auto val:st)cout<<val<<" ";cout<<endl;}
 /*-------------------------------------------------------------------------------*/
+
+ll binery_s(ll arr[],ll st,ll ed,ll num){
+    if(st<=ed){
+        ll mid = (st+ed)/2;
+        if(arr[mid]==num) return mid+1;
+        else if(arr[mid]<num) binery_s(arr,mid+1,ed,num);
+        else if(arr[mid]>num) binery_s(arr,st,mid-1,num);
+    }
+    else return -1;
+}
 int main(){
 #ifndef ONLINE_JUDGE
 freopen("ipt.txt","r",stdin);
@@ -24,15 +34,8 @@ freopen("out.txt","w",stdout);
     cin>>n;
     ll arr[n];
     nit(i,n) cin>>arr[i];
-    for(i=1;i<n;i++){
-        ll temp = arr[i];
-        ll j = i-1;
-        while(j>=0&&arr[j]>temp){
-            arr[j+1] = arr[j];
-            j--;
-        } 
-        arr[j+1] = temp;
-    }
-    printarr(arr,n);
+    ll num ;cin>>num;
+    ll k=binery_s(arr,0,n-1,num);
+    cout<<k;
 return 0;
 }
