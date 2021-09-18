@@ -21,6 +21,14 @@ int main(){
 freopen("ipt.txt","r",stdin);
 freopen("out.txt","w",stdout);
 #endif
-    
+    cin>>n;
+    ll arr[n];
+    nit(i,n) cin>>arr[i];
+    for(int i = 0;i<n;i++){
+        for(int j=0;j<n-i-1;j++){
+            if(arr[j+1]<arr[j]) swap(arr[j+1],arr[j]);
+        }
+    }
+    printarr(arr,n);
 return 0;
 }
