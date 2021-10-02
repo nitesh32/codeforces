@@ -21,6 +21,6 @@ int main(){
 freopen("ipt.txt","r",stdin);
 freopen("out.txt","w",stdout);
 #endif
-    cout<<4<<5<<endl<<4;
+    
 return 0;
 }

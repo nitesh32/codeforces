@@ -1,7 +1,6 @@
-6
-gaga
-abcde
-rotor
-xyzxy
-abbaab
-ababc
+5
+1
+2
+3
+4
+7
