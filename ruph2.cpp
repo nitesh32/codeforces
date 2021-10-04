@@ -16,34 +16,11 @@ void printmap(map<ll,ll> mp){for(auto val:mp)cout<<val.first<<" "<<val.second<<e
 void printvec(vector<ll> vec){for(auto val:vec)cout<<val<<" ";cout<<endl;}
 void printset(set<ll> st){for(auto val:st)cout<<val<<" ";cout<<endl;}
 /*-------------------------------------------------------------------------------*/
-bool is(ll arr[],ll n){
-    for(int i=1;i<n;i++){
-         if(arr[i-1]>arr[i]){
-             return false;
-         }
-    }
-    return true;
-}
 int main(){
 #ifndef ONLINE_JUDGE
 freopen("ipt.txt","r",stdin);
 freopen("out.txt","w",stdout);
 #endif
-    ll t;
-    cin>>t;
-    while(t--){
-        ll x;
-        cin>>n>>x;
-        ll arr[n];
-        nit(i,n){
-            cin>>arr[i];
-        }
-        if(x>=n){
-            cout<<"NO"<<endl;
-            continue;
-        }
-        
-
-    }
+    cout<<9%9;
 return 0;
 }
