@@ -16,14 +16,6 @@ void printmap(map<ll,ll> mp){for(auto val:mp)cout<<val.first<<" "<<val.second<<e
 void printvec(vector<ll> vec){for(auto val:vec)cout<<val<<" ";cout<<endl;}
 void printset(set<ll> st){for(auto val:st)cout<<val<<" ";cout<<endl;}
 /*-------------------------------------------------------------------------------*/
-bool is(ll arr[],ll n){
-    for(int i=1;i<n;i++){
-         if(arr[i-1]>arr[i]){
-             return false;
-         }
-    }
-    return true;
-}
 int main(){
 #ifndef ONLINE_JUDGE
 freopen("ipt.txt","r",stdin);
@@ -32,18 +24,46 @@ freopen("out.txt","w",stdout);
     ll t;
     cin>>t;
     while(t--){
-        ll x;
-        cin>>n>>x;
-        ll arr[n];
+        cin>>n>>s;
+        ll arr[n],brr[n];
+        ll ind =0;
         nit(i,n){
-            cin>>arr[i];
+            if(s[i]=='1'){
+            ind = i+1;
+            }
+            arr[i] = ind;
         }
-        if(x>=n){
-            cout<<"NO"<<endl;
-            continue;
+        ind =0;
+        for(int i=n-1;i>=0;i--){
+            if(s[i]=='1'){
+                ind = i+1;
+            }
+            brr[i]=ind;
         }
-        
-
+        ll count=0;
+        nit(i,n){
+            ll u=i+1;
+            if(s[i]=='0'){
+                if(arr[i]==0&&brr[i]!=0){
+                    //cout<<(brr[i]-u)<<endl;
+                    count += abs(brr[i]-u);
+                }
+                else if(brr[i]==0&&arr[i]!=0){
+                    //cout<<abs(u-arr[i])<<endl;
+                    count += abs(u-arr[i]);
+                }
+                else if(brr[i]==arr[i]){
+                      //cout<<abs(u-arr[i])<<endl;
+                      count += abs(u-arr[i]);
+                }
+                else{
+                    //count += min(abs(u-arr[i])<<" "<<abs(brr[i]-u)<<endl;
+                    count += min(abs(u-arr[i]),abs(brr[i]-u));
+                }
+                
+            }
+        }
+        cout<<count<<endl;
     }
 return 0;
 }
