@@ -16,75 +16,11 @@ void printmap(map<ll,ll> mp){for(auto val:mp)cout<<val.first<<" "<<val.second<<e
 void printvec(vector<ll> vec){for(auto val:vec)cout<<val<<" ";cout<<endl;}
 void printset(set<ll> st){for(auto val:st)cout<<val<<" ";cout<<endl;}
 /*-------------------------------------------------------------------------------*/
-bool check(int arr[9][9],int row,int col,int val){
-   for(int i=0;i<9;i++){
-       if(arr[i][col]==val){
-           return false;
-       }
-   }  
-   for(int i=0;i<9;i++){
-       if(arr[row][i]==val){
-           return false;
-       }
-   } 
-   int r = row-(row%3);
-   int c = col-(col%3);
-   for(int i=0;i<3;i++){
-       for(int j=0;j<3;j++){
-           if(arr[i+r][j+c]==val){
-               return false;
-           }
-       }
-   } 
-   return true;
-}
-bool isblank(int arr[9][9],int &row,int &col){
-    for(int i=0;i<9;i++){
-        for(int j=0;j<9;j++){
-            if(arr[i][j]==0){
-                row = i;
-                col = j;
-                return true;
-            }
-        }
-    }
-    return false;
-}
-bool get(int arr[9][9]){
-    int row,col;
-    if(!isblank(arr,row,col)){
-        return true;
-    }
-    for(int i=1;i<=9;i++){
-        if(check(arr,row,col,i)){
-            arr[row][col]=i;
-            if(get(arr)){
-                return true;
-            }
-            arr[row][col]=0;
-        }
-
-    }
-    return false;
-}
 int main(){
 #ifndef ONLINE_JUDGE
 freopen("ipt.txt","r",stdin);
 freopen("out.txt","w",stdout);
 #endif
-    int arr[9][9];
-    for(int i=0;i<9;i++){
-        cin>>s;
-        for(int j=0;j<9;j++){
-            arr[i][j]=s[j]-'0';
-        }
-    }
-    get(arr);
-    for(int i=0;i<9;i++){
-        for(int j=0;j<9;j++){
-            cout<<arr[i][j];
-        }
-        cout<<endl;
-    }
+    cout<<2<<endl;
 return 0;
 }
