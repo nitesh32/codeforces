@@ -64,6 +64,9 @@ freopen("out.txt","w",stdout);
         cin>>arr[i];
     }
     merge_sort(arr,0,n);
-    printarr(arr,n);
+    for(i=n-1;i>=0;i--){
+       cout<<arr[i]<<" ";
+    }
+
 return 0;
 }

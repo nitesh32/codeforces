@@ -16,55 +16,20 @@ void printmap(map<ll,ll> mp){for(auto val:mp)cout<<val.first<<" "<<val.second<<e
 void printvec(vector<ll> vec){for(auto val:vec)cout<<val<<" ";cout<<endl;}
 void printset(set<ll> st){for(auto val:st)cout<<val<<" ";cout<<endl;}
 /*-------------------------------------------------------------------------------*/
-vector<ll> check(string s,char c){
-     vector<ll> vec;
-     for( i=0;s[i];i++){
-         if(s[i]!=c){
-            vec.push_back(i+1);
-         }
-     }
-     return vec;
-}
-set<ll> st;
-void pr(ll n,char c,string s){
-    vector<ll> vec =check(s,c);
-  
-    for(auto val : vec){
-       // cout<<val<<" ";
-        if(val%2!=0){
-            st.insert(2);
-        }
-        else{
-            st.insert(val+1);
-        }
-    }
-
-    return;
-}
 int main(){
 #ifndef ONLINE_JUDGE
 freopen("ipt.txt","r",stdin);
 freopen("out.txt","w",stdout);
 #endif
-    ll t;
-    cin>>t;
-    while(t--){
-        char ch;
-        cin>>n>>ch;
-        cin>>s;
-        pr(n,ch,s);
-        if(st.size()==0){
-            cout<<0;
-        }
-        else{
-            cout<<st.size()<<endl;
-            for(auto val : st){
-                cout<<val<<" ";
-            }
-            st.clear();
-        }
-        cout<<endl;
-
+    multimap<ll,ll> mp;
+    cin>>n;
+    while(n--){
+        ll a,b;
+        cin>>a>>b;
+        mp.insert(pair<ll,ll>(a,b));
+    }
+    for(auto val : mp){
+        mp.
     }
 return 0;
 }
