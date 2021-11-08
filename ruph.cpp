@@ -21,6 +21,11 @@ int main(){
 freopen("ipt.txt","r",stdin);
 freopen("out.txt","w",stdout);
 #endif
-    cout<<2<<endl;
+    ll t;
+    cin>>t;
+    while(t--){
+        ll c,k;
+        cin>>n>>c>>k;
+    }
 return 0;
 }
