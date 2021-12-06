@@ -21,11 +21,40 @@ int main(){
 freopen("ipt.txt","r",stdin);
 freopen("out.txt","w",stdout);
 #endif
-    ll t;
-    cin>>t;
-    while(t--){
-        ll c,k;
-        cin>>n>>c>>k;
+    cin>>n;
+    ll array[n];
+    nit(i,n) cin>>array[i];
+    cout<<"oregional array : "<<endl;
+    printarr(array,n);
+
+    for (i = 0; i < n; i++)
+    {
+        for (int j = 0; j < (n - i - 1); j++)
+        {
+            if (array[j] > array[j + 1])
+            {
+                int temp = array[j];
+                array[j] = array[j + 1];
+                array[j + 1] = temp;
+            }
+        }
     }
+    cout<<"array in ascending order : "<<endl;
+    printarr(array,n);
+    for (i = 0; i < n; ++i)
+    {
+    for (int j = i + 1; j < n; ++j)
+    {
+      if (array[i] < array[j]){
+         int a = array[i];
+        array[i] = array[j];
+        array[j] = a;
+        }
+    }
+    }
+    cout<<"array in decending order : "<<endl;
+    printarr(array,n);
+ 
+
 return 0;
 }

@@ -1,2 +1,6 @@
-2
-2
+oregional array : 
+9 6 1 2 5 8 
+array in ascending order : 
+1 2 5 6 8 9 
+array in decending order : 
+9 8 6 5 2 1 

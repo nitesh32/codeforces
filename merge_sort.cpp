@@ -16,57 +16,11 @@ void printmap(map<ll,ll> mp){for(auto val:mp)cout<<val.first<<" "<<val.second<<e
 void printvec(vector<ll> vec){for(auto val:vec)cout<<val<<" ";cout<<endl;}
 void printset(set<ll> st){for(auto val:st)cout<<val<<" ";cout<<endl;}
 /*-------------------------------------------------------------------------------*/
-void merge(ll *arr,ll st,ll end){
-   
-    ll mid = (((st+end)/2)+1);
-     ll i = st,j = mid;
-     ll output[end-st+1];
-     ll k=0;
-    while(i<mid&&j<=end){
-        if(arr[i]<=arr[j]){
-            output[k++] = arr[i++];
-        }
-        else{
-            output[k++] = arr[j++];
-        }
-    }
-    while(i<mid){
-        output[k++] = arr[i++];
-    }
-    while(j<=end){
-        output[k++] = arr[j++];
-    }
-    k=0;
-    for(int i=st;i<=end;i++){
-       arr[i]=output[k++];
-    }
-    
-
-}
-void merge_sort(ll arr[],ll st,ll end){
-    if(st>=end) return ;
-    ll mid = (st+end)/2;
-    merge_sort(arr,st,mid);
-    merge_sort(arr,mid+1,end);
-    merge(arr,st,end);
-}
-
-
-
 int main(){
 #ifndef ONLINE_JUDGE
 freopen("ipt.txt","r",stdin);
 freopen("out.txt","w",stdout);
 #endif
-    cin>>n;
-    ll arr[n];
-    nit(i,n){
-        cin>>arr[i];
-    }
-    merge_sort(arr,0,n);
-    for(i=n-1;i>=0;i--){
-       cout<<arr[i]<<" ";
-    }
-
-return 0;
+    cout<<7.1<<" "<<6.3<<" "<<4.2<<" "<<3.2<<" "<<2.1;
+    return 0;
 }
