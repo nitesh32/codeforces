@@ -27,3 +27,5 @@ freopen("out.txt","w",stdout);
     cout<<count(arr+2,arr+n+100,4);
 return 0;
 }
+git --help
+
